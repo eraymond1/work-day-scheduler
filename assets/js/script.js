@@ -1,3 +1,4 @@
+//referenced sylvia Prabudy for help with getting this started
 //put current date on page
 var todaysDate = moment().format("dddd, MMM Do YYYY");
 $("#currentDay").html(todaysDate);
@@ -6,7 +7,7 @@ $("#currentDay").html(todaysDate);
 $(document).ready(function () {
   //create evenlistner for save button
   $(".sBtn").on("click", function () {
-    //getting values desciptions
+    //getting  desciption values
     var text = $(this).siblings(".description").val();
     var time = $(this).parent().attr("id");
 
@@ -15,13 +16,13 @@ $(document).ready(function () {
 
   })
 
-  function time() {
+  function timeTracked() {
     //getting current time
     var timeNow = moment().hour();
 
     //loop to go over blocks of time
-    $("time-block").each(function () {
-      var timeBlocks = parseInt($(this).attr("id").split("hour"));
+    $(".time-block").each(function () {
+      var timeBlocks = parseInt($(this).attr("id").split("hour")[1]);
 
       // checks to see time and changes background according to time past, present, or future
       if (timeBlocks < timeNow) {
@@ -53,11 +54,11 @@ $(document).ready(function () {
   }
 
   //retrieve saved reminders from local stroage for display on page
-  $("#hour5 .description").val(localStorage.getItem("hour5"));
+  // $("#hour5 .description").val(localStorage.getItem("hour5"));
 
-  $("#hour6 .description").val(localStorage.getItem("hour6"));
+  // $("#hour6 .description").val(localStorage.getItem("hour6"));
 
-  $("#hour7 .description").val(localStorage.getItem("hour7"));
+  // $("#hour7 .description").val(localStorage.getItem("hour7"));
 
   $("#hour8 .description").val(localStorage.getItem("hour8"));
 
@@ -79,7 +80,7 @@ $(document).ready(function () {
 
   $("#hour17 .description").val(localStorage.getItem("hour17"));
 
-  time();
+  timeTracked();
 
 
 })
